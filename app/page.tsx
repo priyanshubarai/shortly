@@ -1,19 +1,11 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
 export default function Home() {
   return (
-    
-    <div>
-      {/* <header className="flex flex-row">
-        <div className="text-white text-4xl">Shortly</div>
-        <nav></nav>
-      </header>
-      <main className="h-10 w-10">
-
-        <Button>Shorten</Button>
+    <div className="w-screen h-screen flex justify-center items-center"> 
+      <main className="bg-amber-600 h-3/4 w-3/4">
+        
       </main>
-      <footer></footer> */}
     </div>
   );
 }
