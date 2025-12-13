@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import LiquidEther from "../components/LiquidEther";
+import LiquidEther from "../components/custom/LiquidEther";
+import ClickSpark from "../components/custom/ClickSpark";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,28 +16,43 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen">
-        <div style={{ width: "100%", height: 700, position: "relative" }}>
-          <LiquidEther
-            colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
-            mouseForce={20}
-            cursorSize={100}
-            isViscous={false}
-            viscous={30}
-            iterationsViscous={32}
-            iterationsPoisson={32}
-            resolution={0.5}
-            isBounce={false}
-            autoDemo={true}
-            autoSpeed={0.5}
-            autoIntensity={2.2}
-            takeoverDuration={0.25}
-            autoResumeDelay={3000}
-            autoRampDuration={0.6}
-            style={{minHeight:"screen",height:"100%"}}
-          />
-        </div>
-        {children}
+      <body className="min-h-screen bg-background">
+        <ClickSpark
+          sparkColor="#fff"
+          sparkSize={10}
+          sparkRadius={15}
+          sparkCount={8}
+          duration={400}
+        >
+          <div
+            style={{
+              width: "100%",
+              height: 748,
+              position: "absolute",
+              zIndex: "-12",
+            }}
+          >
+            <LiquidEther
+              colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
+              mouseForce={20}
+              cursorSize={100}
+              isViscous={false}
+              viscous={30}
+              iterationsViscous={32}
+              iterationsPoisson={32}
+              resolution={0.5}
+              isBounce={false}
+              autoDemo={true}
+              autoSpeed={0.5}
+              autoIntensity={2.2}
+              takeoverDuration={0.25}
+              autoResumeDelay={3000}
+              autoRampDuration={0.6}
+              style={{ minHeight: "screen", height: "100%" }}
+            />
+          </div>
+          {children}
+        </ClickSpark>
       </body>
     </html>
   );
